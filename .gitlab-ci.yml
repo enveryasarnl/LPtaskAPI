@@ -1,5 +1,13 @@
-demo_test:
-     tags:
-       - ci
-     script:
-       - echo Hello World
+build:
+  script:
+    - "mvn compile"
+  stage: build
+  tags:
+    - ci
+image: "maven:3-jdk-11"
+test:
+  script:
+    - "mvn clean test"
+  stage: test
+  tags:
+    - ci
