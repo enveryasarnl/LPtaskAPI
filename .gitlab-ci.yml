@@ -1,10 +1,11 @@
+image: rvancea/maven-chrome-jdk8:latest
+
 build:
   script:
     - "mvn compile"
   stage: build
   tags:
     - ci
-image: "maven:3-jdk-11"
 test:
   script:
     - "mvn clean test"
