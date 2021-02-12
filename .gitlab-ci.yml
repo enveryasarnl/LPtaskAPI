@@ -1,0 +1,5 @@
+demo_test:
+     tags:
+       - ci
+     script:
+       - echo Hello World
