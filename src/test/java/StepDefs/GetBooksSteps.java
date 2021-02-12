@@ -32,6 +32,7 @@ public class GetBooksSteps {
     public void aUserRetrievesTheBookByIsbn() {
         response = request.when().get(endpointVolumes);
         System.out.println("response: " + response.prettyPrint());
+        System.out.println("test");
     }
 
     @Then("^the status code is (\\d+)$")
