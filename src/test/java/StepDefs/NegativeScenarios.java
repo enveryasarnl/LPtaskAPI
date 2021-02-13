@@ -21,8 +21,6 @@ public class NegativeScenarios {
     public void call_the_endpoint_with_nonexistent_shelf_ID() {
      request = given().param("key", "AIzaSyBRLx2MXHlbTIemtHtanuQKSf3Cfni8RDk");
      response = request.when().get(usersEndpoint+"/102095640414510446878/bookshelves/1003");
-
-
     }
 
     @Then("^the response status code for nonexistent shelf request is (\\d+)$")

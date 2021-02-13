@@ -12,16 +12,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 
 import java.util.Map;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 
 public class GetBooksSteps {
     private Response response;
     private RequestSpecification request;
     private String endpointVolumes = "https://www.googleapis.com/books/v1/volumes";
-    private String endpointVolumes1 ="https://www.googleapis.com/books/v1/users/102095640414510446878/bookshelves";
     private ValidatableResponse json;
 
 
@@ -33,8 +30,6 @@ public class GetBooksSteps {
     @When("^a user retrieves the book by isbn$")
     public void aUserRetrievesTheBookByIsbn() {
         response = request.when().get(endpointVolumes);
- //       System.out.println("response: " + response.prettyPrint());
- //       System.out.println("test");
     }
 
     @Then("^the status code is (\\d+)$")
@@ -55,20 +50,6 @@ public class GetBooksSteps {
         }
     }
 
- /*   @And("^response includes the following in any order$")
-    public void responseIncludesTheFollowingInAnyOrder(Map<String,String> responseFields) {
-        for (Map.Entry<String, String> field : responseFields.entrySet()) {
-            if(StringUtils.isNumeric(field.getValue())){
-                json.body(field.getKey(), containsInAnyOrder(Integer.parseInt(field.getValue())));
-                Assert.assertTrue(response.getTime()<1);
-            }
-            else{
-                json.body(field.getKey(), containsInAnyOrder(field.getValue()));
-                Assert.assertTrue(response.getTime()<1);
-            }
-        }
-    }
-*/
     @Given("^Author \"([^\"]*)\" exists$")
     public void authorExists(String authorName) {
 

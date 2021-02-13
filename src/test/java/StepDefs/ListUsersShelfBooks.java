@@ -20,14 +20,12 @@ public class ListUsersShelfBooks {
     {
         request = given().param("key", "AIzaSyBRLx2MXHlbTIemtHtanuQKSf3Cfni8RDk");
         response = request.when().get(usersEndpoint+"/102095640414510446878/bookshelves/"+shelfID+"/volumes");
-
     }
 
 
     @Then("^the status code for shelf is (\\d+)$")
     public void theStatusCodeForShelfIs(int statusCode) {
         json = response.then().statusCode(statusCode);
-
     }
 
 
@@ -46,9 +44,7 @@ public class ListUsersShelfBooks {
     @Then("^the books \"([^\"]*)\" should be \"([^\"]*)\"as follows$")
     public void ThenTheBooksTitlesShouldBeAsFollows(String title, int rowNumber)
     {
-
-            json = response.then().body("items.volumeInfo.title["+rowNumber+"]",equalTo(title));
-
+        json = response.then().body("items.volumeInfo.title["+rowNumber+"]",equalTo(title));
     }
 
 }
