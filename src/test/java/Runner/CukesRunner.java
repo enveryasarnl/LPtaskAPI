@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "html:target/cucumberReport.html",
 
             },
- //       tags = {"@smoke"},
+//        tags = {"@Negative"},
         features = "src/test/resources",
         glue = {"StepDefs"},
         monochrome = false,

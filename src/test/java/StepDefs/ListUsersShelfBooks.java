@@ -15,8 +15,8 @@ public class ListUsersShelfBooks {
     private String usersEndpoint = ConfigurationReader.getProperty("usersEndpoint");
     private ValidatableResponse json;
 
-    @Given("^call the endpoint with userID and (\\d+) shelf ID$")
-    public void GivenCallTheEndpointWithUserIDAndShelfID(int shelfID)
+    @Given("call the GET endpoint with userID and (\\d+) shelf ID$")
+    public void GivenCallTheGETEndpointWithUserIDAndShelfID(int shelfID)
     {
         request = given().param("key", "AIzaSyBRLx2MXHlbTIemtHtanuQKSf3Cfni8RDk");
         response = request.when().get(usersEndpoint+"/102095640414510446878/bookshelves/"+shelfID+"/volumes");
