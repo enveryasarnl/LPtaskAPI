@@ -18,38 +18,6 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 
 public class GetShelf {
-    private Response response;
-    private RequestSpecification request;
-    private String endpointVolumes = ConfigurationReader.getProperty("endpointVolumes");
-    private ValidatableResponse json;
 
-    @Given("^shelves exists with an id of (\\d+)$")
-    public void shelvesExistsWithAnIdOf(int id){
-        request = given().param("key", "AIzaSyBRLx2MXHlbTIemtHtanuQKSf3Cfni8RDk");
-    }
-
-    @When("^a user retrieves the shelf by id$")
-    public void aUserRetrievesTheShelfById(){
-        response = request.when().get(endpointVolumes);
-        System.out.println("response: " + response.prettyPrint());
-    }
-
-    @Then("^the status code for shelf is (\\d+)$")
-    public void theStatusCodeForShelfIs(int statusCode) {
-        json = response.then().statusCode(statusCode);
-
-    }
-
-    @Then("^response for shelf includes the following$")
-    public void responseForShelfIncludesTheFollowing(Map<String,String> responseFields) {
-        for (Map.Entry<String, String> field : responseFields.entrySet()) {
-            if(StringUtils.isNumeric(field.getValue())){
-                json.body(field.getKey(), equalTo(Integer.parseInt(field.getValue())));
-            }
-            else{
-                json.body(field.getKey(), equalTo(field.getValue()));
-            }
-        }
-    }
 
 }

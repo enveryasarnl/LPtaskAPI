@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
@@ -22,6 +23,7 @@ public class GetBooksSteps {
     private String endpointVolumes = "https://www.googleapis.com/books/v1/volumes";
     private String endpointVolumes1 ="https://www.googleapis.com/books/v1/users/102095640414510446878/bookshelves";
     private ValidatableResponse json;
+
 
     @Given("^a book exists with an isbn of (.*)$")
     public void aBookExistsWithAnIsbnOf(String isbn) {
@@ -53,18 +55,20 @@ public class GetBooksSteps {
         }
     }
 
-    @And("^response includes the following in any order$")
+ /*   @And("^response includes the following in any order$")
     public void responseIncludesTheFollowingInAnyOrder(Map<String,String> responseFields) {
         for (Map.Entry<String, String> field : responseFields.entrySet()) {
             if(StringUtils.isNumeric(field.getValue())){
                 json.body(field.getKey(), containsInAnyOrder(Integer.parseInt(field.getValue())));
+                Assert.assertTrue(response.getTime()<1);
             }
             else{
                 json.body(field.getKey(), containsInAnyOrder(field.getValue()));
+                Assert.assertTrue(response.getTime()<1);
             }
         }
     }
-
+*/
     @Given("^Author \"([^\"]*)\" exists$")
     public void authorExists(String authorName) {
 
