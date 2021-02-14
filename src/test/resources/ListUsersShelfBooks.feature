@@ -64,9 +64,9 @@ Feature: ListUsersShelfBooks
     And the "<kind>" should be for the kind key
     Examples:
       | searching keyword     | books count       |kind         |
-      |Helicopter             |420                |books#volumes|
-      |Aerodynamics           |410                |books#volumes|
-      |Moscow                 |825                |books#volumes|
+      |Helicopter             |253                |books#volumes|
+      |Aerodynamics           |310                |books#volumes|
+      |Moscow                 |625                |books#volumes|
 
 
   @NonexistentShelf @smokeTest @Negative
