@@ -1,6 +1,6 @@
 test:
   script:
-    - "mvn clean verify"
+    - mvn test -Dcucumber.options="--tags @smokeTest"
   stage: test
   tags:
     - ci
