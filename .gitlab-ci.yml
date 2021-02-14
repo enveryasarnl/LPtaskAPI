@@ -1,6 +1,12 @@
+build:
+  script:
+    - "mvn compile"
+  stage: build
+  tags:
+    - ci
 test:
   script:
-    - mvn test -Dcucumber.options="--tags @smokeTest"
+    - "mvn clean verify"
   stage: test
   tags:
     - ci
