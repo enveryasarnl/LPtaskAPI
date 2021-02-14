@@ -6,7 +6,7 @@ build:
     - ci
 test:
   script:
-    - "mvn clean test"
+    - "mvn clean verify"
   stage: test
   tags:
     - ci
