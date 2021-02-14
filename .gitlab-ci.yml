@@ -1,25 +1,6 @@
----
-before_script:
-  - "bundle install --path vendor"
-cache:
-  paths:
-    - vendor
-image: "ruby:latest"
 test:
-  artifacts:
-    paths:
-      - output/
   script:
     - "mvn clean verify"
-    - "mkdir -p output"
-    - "echo index > output/$(index +%s).html"
   stage: test
-  tags:
-    - ci
-yreport:
-  script:
-    - "ls -l output"
-    - "ls -l vendor"
-  stage: yreport
   tags:
     - ci
