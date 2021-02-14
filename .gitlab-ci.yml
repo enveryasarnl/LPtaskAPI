@@ -1,12 +1,10 @@
-build:
-  script:
-    - "mvn compile"
-  stage: build
-  tags:
-    - ci
-test:
-  script:
-    - "mvn clean verify"
+java:
   stage: test
-  tags:
-    - ci
+  script:
+    - "mvn test"
+  artifacts:
+    paths:
+      - target/surefire-reports/TEST-*.xml
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
