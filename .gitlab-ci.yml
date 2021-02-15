@@ -1,8 +1,22 @@
 image: maven:3-jdk-8
-test:
-  stage: test
+stages:
+  - build test
+  - create artifacts
+build test:
+  stage: build test
   script:
-    - "mvn verify site"
+    - "mvn test"
+  artifacts:
+    when: always
+    paths:
+      - target/surefire-reports/TEST-*.xml
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+create artifacts:
+  stage: create artifacts
+  script:
+    - "mvn test site"
   artifacts:
     when: always
     paths:
