@@ -7,6 +7,8 @@ test:
     when: always
     paths:
       - target/surefire-reports/TEST-*.xml
+      - target/site/index.html
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
+        - target/site/index.html
