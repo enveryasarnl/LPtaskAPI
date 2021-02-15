@@ -9,8 +9,16 @@ test:
       - target/surefire-reports/TEST-*.xml
       - target/site/index.html
       - target/default-cucumber-reports/index.html
+      - target/default-cucumber-reports/formatter.js
+      - target/default-cucumber-reports/jquery-1.8.2.min.js
+      - target/default-cucumber-reports/report.js
+      - target/default-cucumber-reports/style.css
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
         - target/site/index.html
         - target/default-cucumber-reports/index.html
+        - target/default-cucumber-reports/formatter.js
+        - target/default-cucumber-reports/jquery-1.8.2.min.js
+        - target/default-cucumber-reports/report.js
+        - target/default-cucumber-reports/style.css
