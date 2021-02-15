@@ -2,7 +2,7 @@ image: maven:3-jdk-8
 test:
   stage: test
   script:
-    - "mvn test site"
+    - "mvn verify site"
   artifacts:
     when: always
     paths:
