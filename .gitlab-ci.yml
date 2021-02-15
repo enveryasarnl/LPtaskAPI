@@ -8,7 +8,9 @@ test:
     paths:
       - target/surefire-reports/TEST-*.xml
       - target/site/index.html
+      - target/default-cucumber-reports/index.html
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
         - target/site/index.html
+        - target/default-cucumber-reports/index.html
