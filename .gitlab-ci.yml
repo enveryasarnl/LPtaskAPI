@@ -5,6 +5,8 @@ test:
     - "mvn verify"
   artifacts:
     when: always
+    paths:
+      - target/surefire-reports/TEST-*.xml
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
