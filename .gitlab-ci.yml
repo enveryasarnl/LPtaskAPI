@@ -1,13 +1,12 @@
 image: maven:3-jdk-8
 test:
-  stage: test
+  stage: maven-build
   script:
-    - "mvn test site"
+    - "mvn clean test site"
   artifacts:
     when: always
     paths:
       - target/surefire-reports/TEST-*.xml
-      - target/site/index.html
       - target/default-cucumber-reports/index.html
       - target/default-cucumber-reports/formatter.js
       - target/default-cucumber-reports/jquery-1.8.2.min.js
@@ -16,7 +15,6 @@ test:
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
-        - target/site/index.html
         - target/default-cucumber-reports/index.html
         - target/default-cucumber-reports/formatter.js
         - target/default-cucumber-reports/jquery-1.8.2.min.js
